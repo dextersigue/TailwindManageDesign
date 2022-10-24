@@ -1,0 +1,42 @@
+step by step to setup project in tailwind
+1)create a folder open in vscode
+2)goto terminal type npm init -y to initialize a package.json file
+3)after type this npm install -D tailwindcss 
+4)after type this npx tailwindcss init
+5)configure the tailwind.config.js sample
+  module.exports = {
+  content: ["./src/**/*.{html,js}"], //this is the location not permanent like this
+  theme: {
+      screens: {
+        sm: '480px',
+        md: '768px',
+        lg: '976px',
+        xl: '1440px' 
+   },
+    extend: {
+       colors: {
+        brightRed: 'hsl(12, 88%, 59%)',
+        brightRedLight: 'hsl(12, 88%, 69%)',
+	brightRedSupLight: 'hsl(12, 88%, 95%)',
+        darkBlue: 'hsl(228, 39%, 23%)',
+   	darkGrayishBlue: 'hsl(227, 12%, 61%)',
+	veryDarkBlue: 'hsl(223, 12%, 13%)',
+	veryPaleRed: 'hsl(13, 100%, 96%)',
+	veryLightGray: 'hsl(0, 0%, 98%)',
+     }
+   },
+  },
+  plugins: [],
+}
+6)create a css and add this inside 
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+7)goto package.json then in script type this to watch the file
+  "scripts": {
+   "build": "tailwindcss -i ./input.css -o ./css/main.css",
+   "watch": "tailwindcss -i ./input.css -o ./css/main.css --watch"
+   } 
+8) add a link in the index.html file to connect 
+   rel="stylesheet" href="css/main.css"
+9) when you want to run type this npm run watch
